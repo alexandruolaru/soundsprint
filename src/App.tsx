@@ -98,13 +98,6 @@ export default function App() {
     storage.set("recentStations", recent);
   }, [recent]);
 
-  const pushRecent = (id: string) => {
-    setRecent((prev) => {
-      const next = [id, ...prev.filter((x) => x !== id)].slice(0, 8); // max 8
-      return next;
-    });
-  };
-
   const [compact, setCompact] = useState<boolean>(
     storage.get<boolean>("compactMode", false),
   );

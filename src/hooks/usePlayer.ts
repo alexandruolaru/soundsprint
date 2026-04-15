@@ -26,7 +26,7 @@ export function usePlayer(handlers?: {
   const gainRef = useRef<GainNode | null>(null);
   const sourceRef = useRef<MediaElementAudioSourceNode | null>(null);
 
-  const freqDataRef = useRef<Uint8Array | null>(null);
+  const freqDataRef = useRef<Uint8Array<ArrayBuffer> | null>(null);
   const rafRef = useRef<number | null>(null);
 
   const eqLowRef = useRef<BiquadFilterNode | null>(null);
@@ -393,7 +393,9 @@ export function usePlayer(handlers?: {
     gain.gain.value = v;
     applyEqPreset(eqPreset);
 
-    const freqData = new Uint8Array(analyser.frequencyBinCount);
+    const freqData: Uint8Array<ArrayBuffer> = new Uint8Array(
+      new ArrayBuffer(analyser.frequencyBinCount),
+    );
 
     audioCtxRef.current = ctx;
     sourceRef.current = source;
