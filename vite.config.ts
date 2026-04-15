@@ -24,8 +24,8 @@ export default defineConfig({
         theme_color: "#020617",
         background_color: "#020617",
         display: "standalone",
-        scope: "/",
-        start_url: "/",
+        start_url: "/soundsprint/",
+        scope: "/soundsprint/",
         icons: [
           {
             src: "/web-app-manifest-192x192.png",
@@ -43,7 +43,7 @@ export default defineConfig({
         globPatterns: [
           "**/*.{js,css,html,ico,png,svg,jpg,jpeg,webp,webmanifest}",
         ],
-        navigateFallback: "/index.html",
+        navigateFallback: "/soundsprint/index.html",
       },
     }),
   ],
