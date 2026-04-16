@@ -3,7 +3,7 @@ import type { Station } from "../types";
 export const STATIONS: Station[] = [
   {
     id: "kissfm",
-    name: "Kiss FM România",
+    name: "Kiss FM",
     streamUrl: "https://live.kissfm.ro/kissfm.aacp",
     tags: ["hits"],
     country: "RO",
