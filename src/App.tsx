@@ -173,12 +173,18 @@ export default function App() {
     navRef.current.next = goNextStation;
   }, [goPrevStation, goNextStation]);
 
-  const station = STATIONS.find((s) => s.id === selectedId)!;
+  const station = STATIONS.find((s) => s.id === selectedId) ?? STATIONS[0];
   const [bgUrl, setBgUrl] = useState(station.coverUrl || "");
   const [bgPrevUrl, setBgPrevUrl] = useState<string | null>(null);
   const [bgAnimating, setBgAnimating] = useState(false);
   const bgTimerRef = useRef<number | null>(null);
-
+  useEffect(() => {
+    const exists = STATIONS.some((s) => s.id === selectedId);
+    if (!exists && STATIONS.length > 0) {
+      setSelectedId(STATIONS[0].id);
+      storage.set("lastStationId", STATIONS[0].id);
+    }
+  }, [selectedId]);
   useEffect(() => {
     const isTypingTarget = (el: EventTarget | null) => {
       const t = el as HTMLElement | null;
