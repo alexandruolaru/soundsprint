@@ -541,7 +541,7 @@ export function usePlayer(handlers?: {
 
       try {
         const np = await readIcyNowPlayingOnce(url, ctrl.signal);
-        console.log("NOW PLAYING POLL:", url, np);
+        //console.log("NOW PLAYING POLL:", url, np);
 
         if (ctrl.signal.aborted) return;
 

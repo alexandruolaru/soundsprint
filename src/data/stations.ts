@@ -172,13 +172,4 @@ export const STATIONS: Station[] = [
     category: "manele",
     coverUrl: `${import.meta.env.BASE_URL}stations/fmradiomanele.jpg`,
   },
-  {
-    id: "radiogangsta",
-    name: "Radio Gangsta Manele Romania",
-    streamUrl: "http://asculta.radiogangsta.ro:8800/stream",
-    tags: ["manele", "party", "romanian"],
-    country: "RO",
-    category: "manele",
-    coverUrl: `${import.meta.env.BASE_URL}stations/radiogangstamaneleromania.jpg`,
-  },
 ];
